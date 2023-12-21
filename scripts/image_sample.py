@@ -91,8 +91,8 @@ def main():
 def create_argparser():
     defaults = dict(
         clip_denoised=True,
-        num_samples=10000,
-        batch_size=16,
+        num_samples=16,
+        batch_size=16,  #原来是1000，意思是默认采样1000张图像
         use_ddim=False,
         model_path="",
     )
