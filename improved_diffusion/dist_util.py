@@ -26,7 +26,7 @@ def setup_dist():
         return
 
     comm = MPI.COMM_WORLD
-    backend = "gloo" if not th.cuda.is_available() else "nccl"
+    backend = "gloo" #if not th.cuda.is_available() else "nccl"  #windows不支持nccl，注释掉切换nccl的部分
 
     if backend == "gloo":
         hostname = "localhost"
@@ -69,7 +69,7 @@ def sync_params(params):
     """
     for p in params:
         with th.no_grad():
-            dist.broadcast(p, 0)
+            dist.broadcast(p.detach(), 0)  #在一个pr中提出的，加入.detach()来避免一个RuntimeError
 
 
 def _find_free_port():

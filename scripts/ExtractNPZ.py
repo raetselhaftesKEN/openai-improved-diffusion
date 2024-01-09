@@ -1,8 +1,8 @@
 import numpy as np
 from PIL import Image
 
-file="E:\\学习\\UnityCity\\20231220\\sample\\samples_16x64x64x3.npz"
-save="E:\\学习\\UnityCity\\20231220\\sample\\"
+file="E:\\学习\\UnityCity\\20240108\\samples_16x64x64x3.npz"
+save="E:\\学习\\UnityCity\\20240108\\sample\\"
 
 data = np.load(file)
 images=data["arr_0"]
